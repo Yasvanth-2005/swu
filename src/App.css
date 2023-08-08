@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary: #198754;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: #f6f9ff;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Clubs */
+header.club {
+  height: 50px;
+  background-color: white;
+  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
-
-.App-link {
-  color: #61dafb;
+.club .bi-list {
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sidebar {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  z-index: 998;
+  transition: all 0.3s;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #fff transparent;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+}
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.sidebar ul li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 600;
+  transition: 0.3;
+  background: #f6f9ff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.sidebar ul li.active,
+.sidebar ul li:hover {
+  color: var(--primary);
+}
+.sidebar ul li i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+@media (max-width: 992px) {
+  header.club {
+    justify-content: space-between;
   }
-  to {
-    transform: rotate(360deg);
+  header.club > * {
+    margin: 0px 20px;
+  }
+  .sidebar {
+    left: -250px;
+  }
+  .sidebar.active {
+    left: 0;
+  }
+}
+.club-main {
+  padding: 20px;
+  margin-top: 50px;
+}
+.club-main h4 {
+  font-size: 24px;
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--primary);
+}
+@media (min-width: 992px) {
+  .club-main {
+    margin-left: 250px;
   }
 }
